@@ -9,7 +9,11 @@ Rails.application.routes.draw do
   # root "posts#index"
   namespace :api do
     namespace :v1 do
-      resources :users, only: [:create]
+      resources :carts, only: [:index, :show, :create, :update, :destroy]
+      resources :products, only: [:index, :show, :create, :update, :destroy]
+      resources :categories, only: [:index, :show, :create, :update, :destroy]
+      resources :brands, only: [:index, :show, :create, :update, :destroy]
+      resources :users, only: [:index, :show, :create, :update, :destroy]
       post "/login", to: "sessions#create"
       get "/protected", to: "protected#index"
     end
